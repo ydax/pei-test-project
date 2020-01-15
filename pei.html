@@ -1,0 +1,106 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Script Imports -->
+        <!-- Styling -->
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <!-- React and Redux -->
+            <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+            <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <style>
+        #aboutTheApp{
+            padding-top: 60px;
+        }
+        #rate-display{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 80px;
+            color: white;
+        }
+    </style>
+    <title>🤠 Howdy, Pei Friends!</title>
+</head>
+
+<body>
+    <main class="container section">
+        <div class="row">
+            <div class="col s12 l4">
+                <div class="row">
+                    <h3>Rate</h3>
+                </div>
+                <div class="row">
+                    <div class="card-panel blue">
+                        <p class="center" id="rate-display">25</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Currency Selection UI-->
+            <div class="row col s12 offset-l2 l6">
+                <h3>Select Currency</h3>
+                <p>You can select any currency supported by Coindesk's API below.</p>
+                <div class="row center" id="currency-selector">
+                    <div class="col l6" id="dropdown">
+                        <!-- Rate Selection Dropdown -->
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons left">attach_money</i>Select Currency</a>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#!">one</a></li>
+                            <li><a href="#!">two</a></li>
+                            <li class="divider" tabindex="-1"></li>
+                            <li><a href="#!">three</a></li>
+                            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                        </ul>
+                    </div>
+                    <div class="col l6" id="refresh">
+                        <a class="waves-effect waves-light btn"><i class="material-icons left">autorenew</i>Refresh Data</a>
+                    </div>
+                </div>
+
+                <!-- About the App Section -->
+                <div id="aboutTheApp">
+                    <h5>About the App</h5>
+                    <ul class="tabs">
+                        <li class="tab col s6">
+                            <a href="#operations">Stack</a>
+                        </li>
+                        <li class="tab col s6">
+                            <a href="#communication">Features</a>
+                        </li>
+                    </ul>
+                    <div class="col s12 card" id="operations">
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id commodi dolor, distinctio blanditiis eum sed voluptates perferendis doloribus et nam modi dignissimos quis pariatur mollitia odit explicabo? Nemo, veniam harum?</p>
+                        </div>
+                    </div>
+                    <div class="col s12 card" id="communication">
+                        <div class="card-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo minima consequuntur accusamus exercitationem, facere illo neque ipsam eveniet optio eos provident illum doloribus rerum voluptatem, dolores distinctio cupiditate voluptatum veniam?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.materialboxed').materialbox();
+            $('.tabs').tabs();
+            $('.dropdown-trigger').dropdown();
+        });
+    </script>
+    <script src="form.js"></script>
+</body>
+
+</html>
