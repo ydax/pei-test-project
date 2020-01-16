@@ -2,26 +2,15 @@ import React, { createContext, useReducer, useEffect } from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { rateReducer } from './RateReducer'
-import rateSaga from './saga'
+import fetchDataWatcher from './sagas' 
+import { store } from './index'
 
-/** Brings in rate data as a React Context. */
-const [rates, dispatch] = useReducer(rateReducer, [], () => {
-        const localData = localStorage.getItem('rates');
-        return localData ? JSON.parse(localData) : [];
-    });
-    
-    /** Stores user's input in local storage. */
-    useEffect(() => {
-        localStorage.setItem('rates', JSON.stringify(rates));
-    }, [rates])
+/** Instantiates UI Component */
+const Dashboard = () => {
 
-useEffect(() => {
-    refreshRates();
-  })
-
-/////////////////////////////////////////////////////////////
-/////////////////// JSX FOR DASHBOARD ///////////////////////
-/////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
+  /////////////////// JSX FOR DASHBOARD ///////////////////////
+  /////////////////////////////////////////////////////////////
 
   return (
     <main className="container section">
@@ -49,8 +38,13 @@ useEffect(() => {
             </p>
             <div className="row center" id="currency-selector">
               <div className="col l6" id="dropdown">
-                <a className="dropdown-trigger btn" href="#" data-target="dropdown1">
-                  <i className="material-icons left">attach_money</i>Select Currency
+                <a
+                  className="dropdown-trigger btn"
+                  href="#"
+                  data-target="dropdown1"
+                >
+                  <i className="material-icons left">attach_money</i>Select
+                  Currency
                 </a>
                 <ul id="dropdown1" className="dropdown-content">
                   <li>
@@ -76,7 +70,9 @@ useEffect(() => {
                 </ul>
               </div>
               <div className="col l6" id="refresh">
-                <a className="waves-effect waves-light btn" onClick={refreshRates}>
+                <a
+                  className="waves-effect waves-light btn"
+                >
                   <i className="material-icons left">autorenew</i>Refresh Data
                 </a>
               </div>
@@ -119,6 +115,6 @@ useEffect(() => {
       </div>
     </main>
   );
-}
+};
  
-export default RateDisplay;
+export default Dashboard;

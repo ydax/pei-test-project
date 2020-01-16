@@ -1,26 +1,13 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 import axios from 'axios'
 
-let currentRates;
-
-const getRates = axios.get("https://api.coindesk.com/v1/bpi/currentprice.json")
-    .then(res => {
-    console.log(res);
-    let currentRates = res;
-    });
-
+/** Executes the async call to Coindesk via axios. */
 function* fetchData() {
-    try {
-        const exchangeData = yield call(getRates);
-        console.log(currentRates);
-        yield put({type: 'DATA_REQUEST_SUCCESSFUL', currentRates});
-    } catch (error) {
-        console.log(error);
-    }
+    const data = yield call([axios, axios.get], 'https://api.coindesk.com/v1/bpi/currentprice.json');
+    yield put({ type: 'DATA_REQUEST_SUCCESSFUL' , payload: data })
 }
 
-function* rateSaga() {
-    yield takeEvery('DATA_FETCH_REQUESTED', fetchData);
+/** Watches for data fetch requests. */
+export default function* fetchDataWatcher() {
+    yield takeEvery('FETCH_DATA', fetchData)
 }
-
-export default rateSaga;
