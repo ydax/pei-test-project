@@ -4,6 +4,9 @@ import axios from 'axios'
 /** Executes the async call to Coindesk via axios. */
 function* fetchData() {
     const data = yield call([axios, axios.get], 'https://api.coindesk.com/v1/bpi/currentprice.json');
+    // let stringifiedResponse = JSON.stringify(data);
+    // stringifiedResponse = stringifiedResponse.replace(/"([^"]+)":/g,function($0,$1){return ('"'+$1.toLowerCase()+'":');});
+    // const formattedData = JSON.parse(stringifiedResponse);
     yield put({ type: 'DATA_REQUEST_SUCCESSFUL' , payload: data })
 }
 

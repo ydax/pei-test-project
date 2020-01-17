@@ -1,15 +1,15 @@
 const initState = {
-  data: []
+  response: 'no data received yet'
 };
 
 export const rateReducer = (state = initState, action) => {
   switch (action.type) {
     case "DATA_REQUEST_SUCCESSFUL":
-      console.log('Fresh data rec\'d from Coinbase', action.payload);
+
+      console.log('Fresh data rec\'d from Coinbase', action.payload.data);
       return Object.assign({}, state, {
-        data: action.payload
+        response: action.payload.data
       });
-      return state;
     default:
       return state;
   }

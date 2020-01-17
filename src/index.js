@@ -15,8 +15,7 @@ sagaMiddleware.run(fetchDataWatcher);
 
 /** Builds dispatcher. */
 const action = type => store.dispatch({ type });
-
-action('FETCH_DATA');
+action("FETCH_DATA");
 
 /** Provides the store and onRefresh method to the App as a prop. */
 function render() {
