@@ -45,7 +45,7 @@ const Dashboard = ( props ) => {
           </ul>
         </div>
         <p id="basic-info">1 Bitcoin equals</p>
-        <div className="card-content grey lighten-4" id="rate-display">
+        <div className="card-content" id="rate-display">
           <div id="usd">${usdRate}</div>
           <div id="gbp">£{gbpRate}</div>
           <div id="eur">€{eurRate}</div>
